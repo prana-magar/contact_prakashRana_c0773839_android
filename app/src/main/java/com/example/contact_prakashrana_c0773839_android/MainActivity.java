@@ -44,8 +44,7 @@ public class MainActivity extends AppCompatActivity {
         contactViewModel.getAllContacts().observe(this, new Observer<List<Contact>>() {
             @Override
             public void onChanged(List<Contact> contacts) {
-                Toast.makeText(MainActivity.this,"changed",Toast.LENGTH_SHORT
-                ).show();
+
                 contactAdapter.setContactList(contacts);
 
                 setTitle(" Contacts ("+contacts.size() + ") ");
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 contactViewModel.delete(contactAdapter.getContactAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(MainActivity.this,"Deleted", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"Deleted", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -150,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             Contact contact = new Contact(firstName,lastName,email,phoneNumber,address);
             contactViewModel.insert(contact);
 
-            Toast.makeText(MainActivity.this,"Contact saved",Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this,"Contact saved",Toast.LENGTH_SHORT).show();
         }
         else if(requestCode ==  200 && resultCode  ==  RESULT_OK){
             String firstName =  data.getStringExtra("firstName");
@@ -164,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             contact.setId(id);
             contactViewModel.update(contact);
 
-            Toast.makeText(MainActivity.this,"Contact Edited",Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this,"Contact Edited",Toast.LENGTH_SHORT).show();
 
         }
 
