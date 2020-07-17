@@ -24,6 +24,10 @@ public interface ContactDao {
     @Query("DELETE FROM contact")
     void deleteAllContacts();
 
+    @Query("SELECT COUNT(*) FROM contact")
+    int getRowCount();
+
+
     @Query("SELECT * FROM contact")
     LiveData<List<Contact>> getAllContacts();
 

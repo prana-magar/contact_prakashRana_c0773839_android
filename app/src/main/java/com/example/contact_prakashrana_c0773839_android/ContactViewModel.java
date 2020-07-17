@@ -40,6 +40,10 @@ public class ContactViewModel extends AndroidViewModel {
         return contactRepository.getAllContacts();
     }
 
+    public int getRowCount(){
+        return contactRepository.getRowCount();
+    }
+
 
 }
 

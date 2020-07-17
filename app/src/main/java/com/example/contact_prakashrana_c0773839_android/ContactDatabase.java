@@ -49,10 +49,10 @@ public abstract class ContactDatabase extends RoomDatabase {
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            contactDao.insert(new Contact("Prakash", "Rana", "rrr@gamail.cpm","123123","graydon hall"));
-            contactDao.insert(new Contact("Ram", "Rana", "rrr@gamail.cpm","123123","graydon hall"));
-            contactDao.insert(new Contact("Hari", "Rana", "rrr@gamail.cpm","123123","graydon hall"));
-            contactDao.insert(new Contact("Shyam", "Rana", "Shyam@gamail.cpm","123123","graydon hall"));
+//            contactDao.insert(new Contact("Prakash", "Rana", "rrr@gamail.cpm","123123","graydon hall"));
+//            contactDao.insert(new Contact("Ram", "Rana", "rrr@gamail.cpm","123123","graydon hall"));
+//            contactDao.insert(new Contact("Hari", "Rana", "rrr@gamail.cpm","123123","graydon hall"));
+//            contactDao.insert(new Contact("Shyam", "Rana", "Shyam@gamail.cpm","123123","graydon hall"));
 
             return null;
         }

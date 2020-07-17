@@ -11,6 +11,7 @@ public class ContactRepository {
 
     private ContactDao contactDao;
     private LiveData<List<Contact>> allContacts;
+    int rowCount = 0;
 
     public ContactRepository(Application application){
         ContactDatabase contactDatabase = ContactDatabase.getInstance(application);
@@ -24,16 +25,24 @@ public class ContactRepository {
 
     }
 
+    int getRowCount() {
+        return contactDao.getRowCount();
+    }
+
     public void update(Contact contact){
 
         new UpdateContactAsyncTask(contactDao).execute(contact);
 
     }
 
+
+
     public void  delete(Contact contact){
         new DeleteContactAsyncTask(contactDao).execute(contact);
 
     }
+
+
 
     public void deleteAllContacts(){
         new DeleteAllContactsAsyncTask(contactDao).execute();

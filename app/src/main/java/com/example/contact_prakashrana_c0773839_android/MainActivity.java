@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        setTitle("Contacts");
+
 
         RecyclerView recyclerView = findViewById(R.id.contactList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -44,11 +44,29 @@ public class MainActivity extends AppCompatActivity {
         contactViewModel.getAllContacts().observe(this, new Observer<List<Contact>>() {
             @Override
             public void onChanged(List<Contact> contacts) {
-                Toast.makeText(MainActivity.this,"changed",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"changed",Toast.LENGTH_SHORT
+                ).show();
                 contactAdapter.setContactList(contacts);
+
+                setTitle(" Contacts ("+contacts.size() + ") ");
+
             }
         });
 
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                setTitle(" Contacts ("+contactViewModel.getRowCount() + ") ");
+            }
+        });
+        t.setPriority(10);
+        t.start();
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
         // action btn
